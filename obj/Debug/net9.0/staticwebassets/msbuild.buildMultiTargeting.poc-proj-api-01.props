@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/poc-proj-api-01.props" />
-</Project>
