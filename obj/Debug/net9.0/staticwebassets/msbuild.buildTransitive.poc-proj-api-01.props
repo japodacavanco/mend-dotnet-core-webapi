@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/poc-proj-api-01.props" />
+</Project>

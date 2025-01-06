@@ -1,0 +1,139 @@
+[INFO] [2024-12-28 14:24:30,987 -0800] - Usage: java -jar path/to/jarfile [parameters] [args...]
+
+where parameters include:
+    -c        Configuration file name (including file path).
+              Optional - the default filename is whitesource-fs-agent.config.
+    -d        Comma separated list of directories and / or files to scan.
+              Optional - the default directory is the directory where the jar file is located.
+    -f        File list path.
+              To avoid a long command line string, use a text file with folders and files separated by new lines
+              Optional.
+    -v        Query the Unified Agent for its version.
+              Optional.
+    -apiKey   Unique identifier of the organization.
+              It can be retrieved from the admin page in your WhiteSource account.
+              Required.
+    -docker.scanImages
+              Runs scan on all or specified images.
+              General scan using local resolvers (package manager)
+              will only take place if the resolvers are installed and available locally.
+              Optional - The default value is false.
+    -generateScanReport
+              When set to true, a report in JSON format is created at the end of the scan,
+              which includes information on vulnerabilities, policy violations, top fixes and inventory details.
+              The filename format is '<project_name>-scan-<yyyy-mm-dd_hh.mm.ss>.json'.
+              Optional - The default value is false.
+    -gradle.resolveDependencies
+              Whether or not to resolve gradle dependencies.
+              Optional - The default value is true.
+    -gradle.aggregateModules
+              Whether or not to create a single project for all modules.
+              Optional - The default value is false; when running EUA scan should be set to true.
+    -logLevel
+              Specifies the minimal log level printed to stdout.
+              Optional - The default value is info.
+    -log.files.level
+              Specifies the minimal log level printed to the log file.
+              Optional - The default value is debug.
+    -maven.resolveDependencies
+              Whether or not to resolve maven dependencies.
+              Optional - The default value is true.
+    -maven.aggregateModules
+              Whether or not to create a single project for all modules.
+              Optional - The default value is false; when running EUA scan should be set to true.
+    -maven.ignoredScopes
+              Which scopes to ignore. Values should be comma-delimited.
+              Optional - The default value is provided & test; when running EUA scan should be set to All.
+    -noConfig When set to true, you can run a scan without using a configuration file.
+              However, in this case, parameters -projectToken or -project and -apiKey are mandatory.
+              Unless explicitly provided, the default wss.url parameter value is https://saas.whitesourcesoftware.com/agent.
+              Optional - The default value is false.
+    -npm.resolveDependencies
+              Whether or not to resolve npm project folders.
+              Optional - The default value is true.
+    -npm.includeDevDependencies
+              Whether or not to include dev dependencies.
+              Optional - The default value is false; when running EUA scan should be set to true.
+    -offline  Specifies whether to create an offline update request instead of sending one to WhiteSource.
+              Optional - The default value is false.
+    -project
+              Name of the project to update.
+              Required - unless a valid projectToken is specified.
+    -projectVersion
+              Version of the project.
+              Optional - value is only read if projectName is specified.
+    -projectToken
+              Unique identifier of the product to update.
+              It can be retrieved from the 'Integrate' page in your WhiteSource account.
+              Optional - if both projectToken and projectName are empty, projectName will default to "My Project".
+    -product  Name of the product to update.
+              Optional - if empty, an existing WhiteSource product will attempt to be matched by the value of productToken.
+              If productToken is empty or invalid, it defaults to "My Product".
+    -productVersion
+              Version of the product and project to update.
+              This overrides the project version.
+              Optional - only evaluated if productName is specified.
+    -productToken
+              Unique identifier of the product to update.
+              It can be retrieved from the 'Integrate' page in your WhiteSource account.
+              Optional - if both productToken and productName are empty, productName will default to "My Product".
+    -proxy    Proxy info in the following format: scheme://<user>:<password>@host:port/.
+              Optional.
+    -proxy.host
+              Proxy hostname.
+              Optional.
+    -proxy.port
+              Proxy port number.
+              Optional.
+    -proxy.user
+              Proxy username.
+              Optional.
+    -proxy.pass
+              Proxy password.
+              Optional.
+    -projectPerFolder
+              Creates a project for each subfolder. The subfolder's name is used as the project name.
+              Optional - The default value is false.
+    -requestFiles
+              Comma separated list of paths to offline request files.
+              Optional.
+    -resolveAllDependencies
+              Defines whether to enable or disable by default all dependency resolvers for a scan.
+              Optional - The default value is true.
+    -requirementsFileIncludes
+              Comma-separated list of dependency filenames specifying which files to be scanned for dependencies.
+              Note: only supported for python dependency resolution.
+              Optional - The default value is requirements.txt.
+    -requireKnownSha1
+              When set to true,
+              the Unified Agent will terminate the scan if one or more dependencies with an unknown SHA-1 were found.
+              Optional - The default value is true.
+    -scanComment
+              Adds a comment to a scan.
+              The comment is then displayed in the 'Project Vitals' panel of the Project(s) pages,
+              and the Plugin Request History Report.
+              Supports ASCII characters (For UTF-8 characters support, use this parameter in the configuration file).
+              Optional.
+    -scm.repositoriesFile
+              A URL of a JSON file that includes a list of remote repositories.
+              Optional.
+    -updateType
+              Specifies whether or not the project dependencies should be removed before adding the new ones.
+              Specify APPEND in case of adding files to an existing project.
+              Optional - The default value is OVERRIDE.
+    -userKey  Unique identifier of user.
+              It can be generated from the 'Profile' page in your WhiteSource account.
+              Optional - unless WhiteSource administrator has enabled "Enforce user level access" option.
+    -wss.url  URL to send the request to.
+              Use the 'WhiteSource Server URL' which can be retrieved from your 'Profile' page on the 'Server URLs' panel.
+              Then, add the '/agent' path to it. For example: "https://<domain>.whitesourcesoftware.com/agent".
+              Optional - The default wss.url parameter value is https://saas.whitesourcesoftware.com/agent.
+    -whiteSourceFolderPath
+              A path to the 'whiteSource' directory.
+              The WhiteSource folder is created when checking policies and creating an offline file.
+              Path can be absolute or relative.
+              Optional - The default location of the 'whitesource' folder is the working directory from which
+              the Unified Agent is run.
+
+See https://docs.mend.io/bundle/unified_agent/page/unified_agent_configuration_parameters.html for more details.
+

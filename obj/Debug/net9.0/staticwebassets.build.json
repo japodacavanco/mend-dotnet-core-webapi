@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "JL2FVulCWYqn6bgJSJnmM+205OGNndgaaM/i1tDH/rE=",
+  "Source": "poc-proj-api-01",
+  "BasePath": "_content/poc-proj-api-01",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
