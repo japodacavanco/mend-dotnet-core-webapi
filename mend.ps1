@@ -2,7 +2,10 @@ param(
 	# Accept specific values in a parameter
 	[ValidateSet("SCA", "SAST")]
 	[Parameter(Mandatory=$true)]
-	[string]$scanType
+	[string]$scanType,
+	[ValidateSet("BaseLine","Incremental")]
+	[Parameter(Mandatory=$false)]
+	[string]$sastType="BaseLine"
 )
 
 try {
@@ -11,7 +14,12 @@ try {
 			mend sca -d . -s "POC_APP_MEND//POC_PROJ_API_01" -u --label-app "POC-App" --label-proj "POC-Proj"
 		}
 		"SAST" {
-			mend sast -d . -s "POC_APP_MEND//POC_PROJ_API_01" --label-app "POC-App" --label-proj "POC-Proj"
+			if($sastType -eq "BaseLine") {
+				mend sast -d . -s "POC_APP_MEND//POC_PROJ_API_01" --label-app "POC-App" --label-proj "POC-Proj" --upload-baseline
+			}
+			else {
+				mend sast -d . -s "POC_APP_MEND//POC_PROJ_API_01" --label-app "POC-App" --label-proj "POC-Proj" --inc
+			}
 		}
 	}
 }
