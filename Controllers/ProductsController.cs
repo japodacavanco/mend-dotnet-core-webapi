@@ -54,41 +54,37 @@ namespace POC_PROJ_API_01.Controllers
 			var filePath = Path.Combine("C:\\Files", fileName);
 			var fileBytes = System.IO.File.ReadAllBytes(filePath);
 			return File(fileBytes, "application/octet-stream");
+
+			// // Solution to CWE-22: Path/Directory Traversal
+			// 	// Validate fileName for invalid characters
+			// 	foreach (char c in Path.GetInvalidFileNameChars())
+			// 	{
+			// 		if (fileName.Contains(c))
+			// 		{
+			// 			return BadRequest("Invalid file name.");
+			// 		}
+			// 	}
+
+			// 	string basePath = "C:\\Files";
+			// 	string filePath = Path.Combine(basePath, fileName);
+			// 	string fullPath = Path.GetFullPath(filePath);
+
+			// 	// Ensure the file is within the intended directory
+			// 	if (!fullPath.StartsWith(basePath, StringComparison.OrdinalIgnoreCase))
+			// 	{
+			// 		return BadRequest("Invalid file path.");
+			// 	}
+
+			// 	// Check if the file exists
+			// 	if (!System.IO.File.Exists(fullPath))
+			// 	{
+			// 		return NotFound("File not found.");
+			// 	}
+
+			// 	// Read and return the file
+			// 	var fileBytes = System.IO.File.ReadAllBytes(fullPath);
+			// 	return File(fileBytes, "application/octet-stream");
 		}
-
-		// // Solution to CWE-22: Path/Directory Traversal
-		// [HttpGet("{id}/{fileName}")]
-		// public IActionResult DownloadFile(string id, string fileName)
-		// {
-		// 	// Validate fileName for invalid characters
-		// 	foreach (char c in Path.GetInvalidFileNameChars())
-		// 	{
-		// 		if (fileName.Contains(c))
-		// 		{
-		// 			return BadRequest("Invalid file name.");
-		// 		}
-		// 	}
-
-		// 	string basePath = "C:\\Files";
-		// 	string filePath = Path.Combine(basePath, fileName);
-		// 	string fullPath = Path.GetFullPath(filePath);
-
-		// 	// Ensure the file is within the intended directory
-		// 	if (!fullPath.StartsWith(basePath, StringComparison.OrdinalIgnoreCase))
-		// 	{
-		// 		return BadRequest("Invalid file path.");
-		// 	}
-
-		// 	// Check if the file exists
-		// 	if (!System.IO.File.Exists(fullPath))
-		// 	{
-		// 		return NotFound("File not found.");
-		// 	}
-
-		// 	// Read and return the file
-		// 	var fileBytes = System.IO.File.ReadAllBytes(fullPath);
-		// 	return File(fileBytes, "application/octet-stream");
-		// }
 
 		// CWE-59: Symlink Vulnerability
 		[HttpGet("read")]
