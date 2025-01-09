@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/poc-proj-api-01.csproj",
+                "${workspaceFolder}/webapi/poc-proj-api-01.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/poc-proj-api-01.csproj",
+                "${workspaceFolder}/webapi/poc-proj-api-01.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/poc-proj-api-01.csproj"
+                "${workspaceFolder}/webapi/poc-proj-api-01.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

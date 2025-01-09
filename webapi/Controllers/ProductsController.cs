@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using MyClassLibrary;
 
 namespace POC_PROJ_API_01.Controllers
 {
@@ -7,32 +8,19 @@ namespace POC_PROJ_API_01.Controllers
 	[Route("api/[controller]")]
 	public class ProductsController : ControllerBase
 	{
-		private readonly string? _connectionString; // = "YourConnectionStringHere";
+		private readonly string _connectionString; // = "YourConnectionStringHere";
+		private readonly ProductService _productService;
 
 		public ProductsController(IConfiguration configuration)
 		{
-			_connectionString = configuration.GetConnectionString("DefaultConnection");
+			_connectionString = configuration.GetConnectionString("DefaultConnection")!;
+			_productService = new ProductService(_connectionString);
 		}
 
 		[HttpGet("{myId}/products")]
-		public IActionResult GetProductById(string myId)
+		public async Task<IActionResult> GetProductById(string myId)
 		{
-			using (var connection = new SqlConnection(_connectionString))
-			{
-				// This query is vulnerable to SQL injection
-				var query = $"SELECT * FROM Products WHERE ProductId = '{myId}'";
-
-				// This query is safe from SQL injection
-				// var query = "SELECT * FROM Products WHERE ProductId = @ProductId";
-
-				var command = new SqlCommand(query, connection);
-
-				// command.Parameters.AddWithValue("@ProductId", myId);
-
-				connection.Open();
-				var reader = command.ExecuteReader();
-				// Process the data reader...
-			}
+			await _productService.GetProductById(myId);
 			return Ok();
 		}
 
