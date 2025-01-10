@@ -16,10 +16,10 @@ try {
 		}
 		"SAST" {
 			if($sastType -eq "BaseLine") {
-				mend sast -d $directoryPath -s "POC_APP_MEND//POC_PROJ_API_01" --label-app "POC-App" --label-proj "POC-Proj" --upload-baseline
+				mend sast -d $directoryPath -s "POC_APP_MEND//POC_PROJ_API_01" --label-app "POC-App" --label-proj "POC-Proj" --upload-baseline --csharp-engine-generation 2
 			}
 			else {
-				mend sast -d $directoryPath -s "POC_APP_MEND//POC_PROJ_API_01" --label-app "POC-App" --label-proj "POC-Proj" --inc
+				mend sast -d $directoryPath -s "POC_APP_MEND//POC_PROJ_API_01" --label-app "POC-App" --label-proj "POC-Proj" --inc --csharp-engine-generation 2
 			}
 		}
 	}
