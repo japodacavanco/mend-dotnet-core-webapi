@@ -21,7 +21,7 @@ try {
 			elseif($sastType -eq "Incremental"){
 				mend sast -d $directoryPath -s "POC_APP_MEND//POC_PROJ_API_01" --label-app "POC-App" --label-proj "POC-Proj" --inc --csharp-engine-generation 2
 			}
-			elseif($scanType -eq "None") {
+			elseif($sastType -eq "None") {
 				mend sast -d $directoryPath -s "POC_APP_MEND//POC_PROJ_API_01" --label-app "POC-App" --label-proj "POC-Proj" --csharp-engine-generation 2
 			}
 		}
