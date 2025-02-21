@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "poc-proj-api-01", "webapi\poc-proj-api-01.csproj", "{CD497442-C41E-4D2D-B0D5-D6D9475DCFF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClassLibrary", "class-library\MyClassLibrary.csproj", "{29900ED9-8C14-4204-B0D4-95A88BF1552D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClassLibrary2", "class-library-two\MyClassLibrary2.csproj", "{CF6594C7-04D1-4773-A96F-A579F9271F65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD497442-C41E-4D2D-B0D5-D6D9475DCFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD497442-C41E-4D2D-B0D5-D6D9475DCFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD497442-C41E-4D2D-B0D5-D6D9475DCFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD497442-C41E-4D2D-B0D5-D6D9475DCFF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29900ED9-8C14-4204-B0D4-95A88BF1552D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29900ED9-8C14-4204-B0D4-95A88BF1552D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29900ED9-8C14-4204-B0D4-95A88BF1552D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29900ED9-8C14-4204-B0D4-95A88BF1552D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6594C7-04D1-4773-A96F-A579F9271F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6594C7-04D1-4773-A96F-A579F9271F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6594C7-04D1-4773-A96F-A579F9271F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6594C7-04D1-4773-A96F-A579F9271F65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
