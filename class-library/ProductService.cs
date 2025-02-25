@@ -18,27 +18,24 @@ namespace MyClassLibrary
 
 		public async Task GetProductById(string myId)
 		{
-			await Task.Run(async () =>
+			using (var connection = new SqlConnection(_connectionString))
 			{
-				using (var connection = new SqlConnection(_connectionString))
-				{
-					// This query is vulnerable to SQL injection
-					var query = $"SELECT * FROM Products WHERE ProductId = '{myId}'";
+				// This query is vulnerable to SQL injection
+				var query = $"SELECT * FROM Products WHERE ProductId = '{myId}'";
 
-					// This query is safe from SQL injection
-					// var query = "SELECT * FROM Products WHERE ProductId = @ProductId";
+				// This query is safe from SQL injection
+				// var query = "SELECT * FROM Products WHERE ProductId = @ProductId";
 
-					var command = new SqlCommand(query, connection);
+				var command = new SqlCommand(query, connection);
 
-					// command.Parameters.AddWithValue("@ProductId", myId);
+				// command.Parameters.AddWithValue("@ProductId", myId);
 
-					await _employeeService.GetEmployeeById(myId);
+				await _employeeService.GetEmployeeById(myId);
 
-					connection.Open();
-					var reader = command.ExecuteReader();
-					// Process the data reader...
-				}
-			});
+				connection.Open();
+				var reader = command.ExecuteReader();
+				// Process the data reader...
+			}
 		}
 
 		public async Task<dynamic> GetProducts()
