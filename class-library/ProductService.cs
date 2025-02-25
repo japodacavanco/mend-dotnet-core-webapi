@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using MyClassLibrary2;
 
 namespace MyClassLibrary
 {
@@ -6,16 +7,18 @@ namespace MyClassLibrary
 	{
 		private readonly string _connectionString;
 		private readonly string _baseDirectory;
+		private readonly EmployeeService _employeeService;
 
 		public ProductService(string connectionString, string baseDirectory)
 		{
 			_connectionString = connectionString;
 			_baseDirectory = baseDirectory;
+			_employeeService = new EmployeeService(connectionString);
 		}
 
 		public async Task GetProductById(string myId)
 		{
-			await Task.Run(() =>
+			await Task.Run(async () =>
 			{
 				using (var connection = new SqlConnection(_connectionString))
 				{
@@ -28,6 +31,8 @@ namespace MyClassLibrary
 					var command = new SqlCommand(query, connection);
 
 					// command.Parameters.AddWithValue("@ProductId", myId);
+
+					await _employeeService.GetEmployeeById(myId);
 
 					connection.Open();
 					var reader = command.ExecuteReader();
